@@ -12,7 +12,16 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('addition', () =>{
+it('multiplies', () => {
+  const wrapper = shallow(<App />);
+  wrapper.find('input').simulate('change', {
+    target: { value: '5*9' }
+  });
+  const renderResult = wrapper.find('#result').text();
+  expect(renderResult).toBe('45');
+})
+
+it('adds', () =>{
   const wrapper = shallow(<App />);
   wrapper.find('input').simulate('change', {
     target: { value: '25+10' }

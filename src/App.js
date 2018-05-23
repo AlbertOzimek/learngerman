@@ -10,13 +10,15 @@ class App extends Component {
 
   onInputChange(e) {
    const val = e.target.value;
-   const parts = val.match(/(\d+)(\+)(\d+)/);
-   const left = parseInt(parts[1]); 
-   const operator = parts[2];
-   const right = parseInt(parts[3]);
+   const parts = val.match(/(\d+)([\+*])(\d+)/);
+   const left = parseInt(parts[1]); // ?
+   const operator = parts[2]; // ? 
+   const right = parseInt(parts[3]); // ?
    let result;
    if(operator === '+') {
      result = left + right;
+   } else if (operator === '*') {
+     result = left * right;
    }
    this.setState({result});
   }
