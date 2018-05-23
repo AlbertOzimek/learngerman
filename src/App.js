@@ -3,6 +3,23 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  onInputChange(e) {
+   const val = e.target.value;
+   const parts = val.match(/(\d+)(\+)(\d+)/);
+   const left = parseInt(parts[1]); 
+   const operator = parts[2];
+   const right = parseInt(parts[3]);
+   let result;
+   if(operator === '+') {
+     result = left + right;
+   }
+   this.setState({result});
+  }
   render() {
     return (
       <div className="App">
@@ -12,7 +29,13 @@ class App extends Component {
         </header>
         <p className="App-intro">
           With us you will lear german
-        </p>
+        </p> 
+
+        <div> 
+            <input onChange={this.onInputChange.bind(this)} />
+            <div id="result">{this.state.result}</div>
+        </div>
+
       </div>
     );
   }
