@@ -12,6 +12,13 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
+it('does not crush on partial input', ()=> {
+  const wrapper = shallow(<App />);
+  wrapper.find('input').simulate('change', {
+    target: { value: '1' }
+  });
+});
+
 it('multiplies', () => {
   const wrapper = shallow(<App />);
   wrapper.find('input').simulate('change', {

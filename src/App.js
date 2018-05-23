@@ -11,6 +11,7 @@ class App extends Component {
   onInputChange(e) {
    const val = e.target.value;
    const parts = val.match(/(\d+)([\+*])(\d+)/);
+   if (!parts) return;
    const left = parseInt(parts[1]); // ?
    const operator = parts[2]; // ? 
    const right = parseInt(parts[3]); // ?

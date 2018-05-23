@@ -15,7 +15,10 @@ module.exports = function (wallaby) {
       'src/**/*.+(js|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
       '!src/**/*.test.js?(x)'
     ],
-
+    filesWithNoCoverageCalculated: [
+      'src/registerServiceWorker.js',
+      ' src/index.js'
+    ],
     tests: ['src/**/*.test.js?(x)'],
 
     env: {
