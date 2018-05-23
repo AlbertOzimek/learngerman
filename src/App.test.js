@@ -6,33 +6,18 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const wrapper = shallow(<App />);
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('does not crush on partial input', ()=> {
-  const wrapper = shallow(<App />);
-  wrapper.find('input').simulate('change', {
-    target: { value: '1' }
-  });
-});
-
-it('multiplies', () => {
-  const wrapper = shallow(<App />);
-  wrapper.find('input').simulate('change', {
-    target: { value: '5*9' }
-  });
-  const renderResult = wrapper.find('#result').text();
-  expect(renderResult).toBe('45');
-})
-
-it('adds', () =>{
-  const wrapper = shallow(<App />);
-  wrapper.find('input').simulate('change', {
-    target: { value: '25+10' }
-  });
-  const renderResult = wrapper.find('#result').text();
-  expect(renderResult).toBe('35');
+it('should translate a text from english to german', function () {
+    wrapper.find('input').simulate('change', {
+        target: { value: 'der Hund' }
+    });
+    const renderResult = wrapper.find('#result').text();
+    expect(renderResult).toBe('dog');
 });
