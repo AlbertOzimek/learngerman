@@ -15,7 +15,7 @@ it('renders without crashing', () => {
 });
 
 it('should translate a text from english to german', function () {
-    wrapper.find('input').simulate('change', {
+    wrapper.find('textarea').simulate('change', {
         target: { value: 'der Hund' }
     });
     const renderResult = wrapper.find('#result').text();

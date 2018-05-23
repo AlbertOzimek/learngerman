@@ -26,11 +26,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Learn German</h1>
         </header>
-         {this.strings}
-        <div className={"calculator"}>
-            <input onChange={this.onInputChange.bind(this)} />
-            <div id="result">{this.state.result}</div>
-        </div>
+         <p>Write this in German</p>
+         <p>{this.strings}</p>
+        <textarea onChange={this.onInputChange.bind(this)} />
+        <div id="result">{this.state.result}</div>
       </div>
     );
   }
